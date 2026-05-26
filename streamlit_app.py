@@ -1,5 +1,6 @@
 import streamlit as st
 from groq import Groq
+import base64
 API_KEY = "gsk_3EFsaa6yAai1uvLKroWacDv8mhQ_SUiCMQjvxib37Ys45R5w"
 st.set_page_config(page_title="JYNXIQ", page_icon="🚀", layout="centered")
 
