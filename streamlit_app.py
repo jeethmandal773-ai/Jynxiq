@@ -126,4 +126,3 @@ elif send_button and not user_input:
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 st.markdown('<div class="footer">✦ JYNXIQ ✦ INTELLIGENT LEARNING AI ✦ FREE FOREVER ✦ MADE FOR INDIAN STUDENTS 🇮🇳 ✦</div>', unsafe_allow_html=True)
-v
