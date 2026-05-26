@@ -184,7 +184,7 @@ for m in st.session_state.messages:
                     model="llama-3.3-70b-versatile",
                     messages=messages,
                     max_tokens=1500 
-                    with st.spinner("⚡ JYNXIQ Thinking..."):
+  with st.spinner("⚡ JYNXIQ Thinking..."):
      with st.spinner("⚡ JYNXIQ Thinking..."):
         try:
             # This is the corrected way to call the client
