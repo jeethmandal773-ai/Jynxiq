@@ -178,8 +178,11 @@ if send_button and (user_input or st.session_state.image_data):
     st.session_state.messages.append({"role": "user", "content": question})
     st.markdown('<div class="user-bubble">🧑‍🎓 ' + question + '</div>', unsafe_allow_html=True)
     with st.spinner("⚡ JYNXIQ Thinking..."):
+     with st.spinner("⚡ JYNXIQ Thinking..."):
         try:
-            client = Groq_api_key=(st.secrets["GROQ_API_KEY"])
+            # This is the corrected way to call the client
+            client = Groq(api_key=st.secrets["GROQ_API_KEY"])
+            
             system_prompt = f"""You are JYNXIQ, an intelligent learning AI for Indian students.
 Current subject mode: {subject}
 Help with JEE, NEET, UPSC, Inter Board and all subjects.
@@ -187,6 +190,32 @@ Give clear step by step explanations.
 Use simple English. If asked in Telugu, reply in Telugu mixed English.
 If an image is provided, carefully read and solve the question in the image.
 Always encourage the student!"""
+
+            if st.session_state.image_data:
+                response = client.chat.completions.create(
+                    model="llama-3.2-11b-vision-preview",
+                    messages=[{"role": "user", "content": [
+                        {"type": "text", "text": system_prompt + "\n\n" + question},
+                        {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{st.session_state.image_data}"}}
+                    ]}],
+                    max_tokens=1500
+                )
+                st.session_state.image_data = None
+            else:
+                messages = [{"role": "system", "content": system_prompt}]
+                for m in st.session_state.messages:
+                    messages.append({"role": m["role"], "content": m["content"]})
+                response = client.chat.completions.create(
+                    model="llama-3.3-70b-versatile",
+                    messages=messages,
+                    max_tokens=1500
+                )
+
+            reply = response.choices[0].message.content
+            st.session_state.messages.append({"role": "assistant", "content": reply})
+            st.markdown('<div class="assistant-bubble">🤖 ' + reply + '</div>', unsafe_allow_html=True)
+        except Exception as e:
+            st.error("❌ Error: " + str(e))
 
             if st.session_state.image_data:
                 api_messages = [{"role": "user", "content": [
