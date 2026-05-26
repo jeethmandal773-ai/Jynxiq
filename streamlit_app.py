@@ -179,7 +179,7 @@ if send_button and (user_input or st.session_state.image_data):
     st.markdown('<div class="user-bubble">🧑‍🎓 ' + question + '</div>', unsafe_allow_html=True)
     with st.spinner("⚡ JYNXIQ Thinking..."):
         try:
-            client = Groq(api_key=st.secrets["GROQ_API_KEY"])
+            client = Groq api_key=(st.secrets["GROQ_API_KEY"])
             system_prompt = f"""You are JYNXIQ, an intelligent learning AI for Indian students.
 Current subject mode: {subject}
 Help with JEE, NEET, UPSC, Inter Board and all subjects.
