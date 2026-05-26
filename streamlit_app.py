@@ -178,9 +178,9 @@ if send_button and (user_input or st.session_state.image_data):
     st.session_state.messages.append({"role": "user", "content": question})
     st.markdown('<div class="user-bubble">🧑‍🎓 ' + question + '</div>', unsafe_allow_html=True)
    
-         for m in st.session_state.messages:
-                    messages.append({"role": m["role"], "content": m["content"]})
-                response = client.chat.completions.create(
+for m in st.session_state.messages:
+ messages.append({"role": m["role"], "content": m["content"]})
+ response = client.chat.completions.create(
                     model="llama-3.3-70b-versatile",
                     messages=messages,
                     max_tokens=1500 
