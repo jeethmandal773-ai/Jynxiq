@@ -177,7 +177,14 @@ if send_button and (user_input or st.session_state.image_data):
     question = user_input if user_input else "Please solve this question from the image"
     st.session_state.messages.append({"role": "user", "content": question})
     st.markdown('<div class="user-bubble">🧑‍🎓 ' + question + '</div>', unsafe_allow_html=True)
-    with st.spinner("⚡ JYNXIQ Thinking..."):
+   
+                for m in st.session_state.messages:
+                    messages.append({"role": m["role"], "content": m["content"]})
+                response = client.chat.completions.create(
+                    model="llama-3.3-70b-versatile",
+                    messages=messages,
+                    max_tokens=1500 
+                    with st.spinner("⚡ JYNXIQ Thinking..."):
      with st.spinner("⚡ JYNXIQ Thinking..."):
         try:
             # This is the corrected way to call the client
@@ -230,12 +237,6 @@ Always encourage the student!"""
                 st.session_state.image_data = None
             else:
                 messages = [{"role": "system", "content": system_prompt}]
-                for m in st.session_state.messages:
-                    messages.append({"role": m["role"], "content": m["content"]})
-                response = client.chat.completions.create(
-                    model="llama-3.3-70b-versatile",
-                    messages=messages,
-                    max_tokens=1500
                 )
 
             reply = response.choices[0].message.content
