@@ -1,5 +1,5 @@
-vv%%writefile app.py
- import streamlit as st
+
+import streamlit as st
 from groq import Groq
 
 API_KEY = "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"
