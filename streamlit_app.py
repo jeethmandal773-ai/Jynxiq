@@ -1,6 +1,6 @@
 import streamlit as st
 from groq import Groq
-API_KEY = "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"
+API_KEY = "gsk_3EFsaa6yAai1uvLKroWacDv8mhQ_SUiCMQjvxib37Ys45R5w"
 st.set_page_config(page_title="JYNXIQ", page_icon="🚀", layout="centered")
 
 st.markdown("""
