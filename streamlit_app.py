@@ -51,7 +51,6 @@ with st.sidebar:
     st.markdown("• UPSC current affairs")
     st.markdown("• NEET biology tips")
     st.markdown("• IIT JEE maths tricks")
-    st.markdown("• 🎤 Speak your question!")
     st.markdown("• 📸 Upload question photo!")
     st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
     subject = st.selectbox("📖 Select Subject Mode", [
