@@ -111,8 +111,7 @@ if uploaded_file:
 
 col1, col2 = st.columns([5, 1])
 with col1:
-    user_input = st.text_input("", placeholder="✦ Type or Use uploading files"
-...", label_visibility="collapsed")
+    user_input = st.text_input("", placeholder="✦ Type or Use uploading files...", label_visibility="collapsed")
 with col2:
     send_button = st.button("🚀")
 
