@@ -84,8 +84,7 @@ if len(st.session_state.messages) == 0:
         <div style="color:#ffffff;">⚡ <b>JEE/IIT</b> — Maths, Physics, Chemistry</div>
         <div style="color:#ffffff;">🧪 <b>NEET/MBBS</b> — Biology, Chemistry, Physics</div>
         <div style="color:#ffffff;">🏛️ <b>UPSC</b> — History, Polity, Geography, Economy</div>
-        <div style="color:#ffffff;">📚 <b>Inter Board</b> — MPC, BiPC, All Subjects</div>
-    
+        <div style="color:#ffffff;">📚 <b>Inter Board</b> — MPC, BiPC, All Subjects</div
         <div style="color:#ffffff;">🖼️ <b>Image Q&A</b> — Upload photo of any question!</div>
         <br>
         <div style="color:#7799aa; font-size:0.9em;">✦ Ask in English or Telugu ✦ No login needed ✦ 100% Free ✦</div>
