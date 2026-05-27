@@ -86,7 +86,7 @@ if len(st.session_state.messages) == 0:
         <div style="color:#ffffff;">🧪 <b>NEET/MBBS</b> — Biology, Chemistry, Physics</div>
         <div style="color:#ffffff;">🏛️ <b>UPSC</b> — History, Polity, Geography, Economy</div>
         <div style="color:#ffffff;">📚 <b>Inter Board</b> — MPC, BiPC, All Subjects</div>
-        <div style="color:#ffffff;">🎤 <b>Voice Input</b> — Speak your question!</div>
+    
         <div style="color:#ffffff;">🖼️ <b>Image Q&A</b> — Upload photo of any question!</div>
         <br>
         <div style="color:#7799aa; font-size:0.9em;">✦ Ask in English or Telugu ✦ No login needed ✦ 100% Free ✦</div>
@@ -111,7 +111,8 @@ if uploaded_file:
 
 col1, col2 = st.columns([5, 1])
 with col1:
-    user_input = st.text_input("", placeholder="✦ Type or use 🎤 Voice above...", label_visibility="collapsed")
+    user_input = st.text_input("", placeholder="✦ Type 
+...", label_visibility="collapsed")
 with col2:
     send_button = st.button("🚀")
 
@@ -168,5 +169,5 @@ elif send_button:
     st.warning("Please type a question or upload an image first!")
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-st.markdown('<div class="footer">✦ JYNXIQ ✦ VOICE & IMAGE AI ✦ FREE FOREVER ✦ MADE FOR INDIAN STUDENTS 🇮🇳 ✦</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">✦ JYNXIQ ✦ IMAGE AI ✦ FREE FOREVER ✦ MADE FOR INDIAN STUDENTS 🇮🇳 ✦</div>', unsafe_allow_html=True)
     
