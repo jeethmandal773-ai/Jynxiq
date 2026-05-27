@@ -12,7 +12,7 @@ st.marked"("
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap');
 * { font-family: 'Rajdhani', sans-serif; }
 .stApp { background: radial-gradient(ellipse at top, #0d0221 0%, #000000 50%, #0a0a2e 100%); color: white; }
-.main-title { font-family: 'Orbitron', monospace !important; text-align: center; font-size: 2.2em; font-weight: 900; background: linear-gradient(90deg, #00d4ff, #7b2fff, #00d4ff); background-size: 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding: 15px 0 5px 0; letter-spacing: 3px; }
+.main-title { font-family: 'Orbitron', monospace !important; text-align: center; font-size: 2.2; font-weight: 900; background: linear-gradient(90deg, #00d4ff, #7b2fff, #00d4ff); background-size: 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding: 15px 0 5px 0; letter-spacing: 3px; }
 .subtitle { text-align: center; color: #7b8ab8; font-size: 1em; letter-spacing: 2px; margin-bottom: 5px; }
 .pill { display: inline-block; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.3); border-radius: 20px; padding: 4px 14px; font-size: 0.85em; color: #00d4ff; margin: 3px; }
 .divider { height: 1px; background: linear-gradient(90deg, transparent, #00d4ff44, #7b2fff44, transparent); margin: 15px 0; }
