@@ -37,7 +37,7 @@ st.markdown('''<div style="text-align:center; margin:10px 0 20px 0;">
 <span class="pill">📐 MPC</span>
 <span class="pill">🏛️ UPSC</span>
 <span class="pill">📚 INTER</span>
-<span class="pill">🎤 VOICE</span>
+<span
 <span class="pill">🖼️ IMAGE</span>
 </div>''', unsafe_allow_html=True)
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
