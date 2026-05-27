@@ -1,6 +1,7 @@
 import streamlit as st
 from groq import Groq
 import base64
+API_KEY = st.secrets["GROQ_API_KEY"]
 
 st.set_page_config(page_title="JYNXIQ", page_icon="🚀", layout="centered")
 
