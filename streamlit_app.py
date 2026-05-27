@@ -1,4 +1,4 @@
-import streamlit as st
+ import streamlit as st
 from groq import Groq
 import base64
 
@@ -7,12 +7,12 @@ API_KEY = st.secrets["GROQ_API_KEY"]
 
 st.set_page_config(page_title="JYNXIQ", page_icon="🚀", layout="centered")
 
-st.marked"("
+st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap');
 * { font-family: 'Rajdhani', sans-serif; }
 .stApp { background: radial-gradient(ellipse at top, #0d0221 0%, #000000 50%, #0a0a2e 100%); color: white; }
-.main-title { font-family: 'Orbitron', monospace !important; text-align: center; font-size: 2.2; font-weight: 900; background: linear-gradient(9deg, #00d4ff, #7b2fff, #00d4ff); background-size: 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding: 15px 0 5px 0; letter-spacing: 3px; }
+.main-title { font-family: 'Orbitron', monospace !important; text-align: center; font-size: 2.2em; font-weight: 900; background: linear-gradient(90deg, #00d4ff, #7b2fff, #00d4ff); background-size: 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding: 15px 0 5px 0; letter-spacing: 3px; }
 .subtitle { text-align: center; color: #7b8ab8; font-size: 1em; letter-spacing: 2px; margin-bottom: 5px; }
 .pill { display: inline-block; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.3); border-radius: 20px; padding: 4px 14px; font-size: 0.85em; color: #00d4ff; margin: 3px; }
 .divider { height: 1px; background: linear-gradient(90deg, transparent, #00d4ff44, #7b2fff44, transparent); margin: 15px 0; }
@@ -26,7 +26,8 @@ st.marked"("
 [data-testid="stSidebar"] p, [data-testid="stSidebar"] label { color: #aabbdd !important; }
 .footer { text-align: center; color: #2a3a5a; font-size: 0.8em; letter-spacing: 2px; padding: 10px; }
 </style>
-""", unsafe_allow_html=True
+""", unsafe_allow_html=True)
+
 
 st.markdown('<div class="main-title">⚡ JYNXIQ</div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">I N T E L L I G E N T   L E A R N I N G   A I</div>', unsafe_allow_html=True)
@@ -50,6 +51,7 @@ with st.sidebar:
     st.markdown("• UPSC current affairs")
     st.markdown("• NEET biology tips")
     st.markdown("• IIT JEE maths tricks")
+    st.markdown("• 🎤 Speak your question!")
     st.markdown("• 📸 Upload question photo!")
     st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
     subject = st.selectbox("📖 Select Subject Mode", [
@@ -67,7 +69,7 @@ with st.sidebar:
         st.session_state.image_data = None
         st.rerun()
     st.markdown("🚀 Powered by Groq AI")
-    st.markdown("✅ Free Foreveryone")
+    st.markdown("✅ Free Forever")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -84,6 +86,7 @@ if len(st.session_state.messages) == 0:
         <div style="color:#ffffff;">🧪 <b>NEET/MBBS</b> — Biology, Chemistry, Physics</div>
         <div style="color:#ffffff;">🏛️ <b>UPSC</b> — History, Polity, Geography, Economy</div>
         <div style="color:#ffffff;">📚 <b>Inter Board</b> — MPC, BiPC, All Subjects</div>
+        <div style="color:#ffffff;">🎤 <b>Voice Input</b> — Speak your question!</div>
         <div style="color:#ffffff;">🖼️ <b>Image Q&A</b> — Upload photo of any question!</div>
         <br>
         <div style="color:#7799aa; font-size:0.9em;">✦ Ask in English or Telugu ✦ No login needed ✦ 100% Free ✦</div>
@@ -108,7 +111,7 @@ if uploaded_file:
 
 col1, col2 = st.columns([5, 1])
 with col1:
-    user_input = st.text_input("", placeholder="✦ Type or Upload files...", label_visibility="collapsed")
+    user_input = st.text_input("", placeholder="✦ Type or use 🎤 Voice above...", label_visibility="collapsed")
 with col2:
     send_button = st.button("🚀")
 
@@ -165,4 +168,5 @@ elif send_button:
     st.warning("Please type a question or upload an image first!")
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-st.markdown('<div class="footer">✦ JYNXIQ ✦ IMAGE AI ✦ FREE FOR EVERYONE ✦ MADE FOR STUDENTS🧑‍🎓  ✦</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">✦ JYNXIQ ✦ VOICE & IMAGE AI ✦ FREE FOREVER ✦ MADE FOR INDIAN STUDENTS 🇮🇳 ✦</div>', unsafe_allow_html=True)
+    
