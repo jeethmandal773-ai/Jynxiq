@@ -26,68 +26,7 @@ st.markdown("""
 [data-testid="stSidebar"] p, [data-testid="stSidebar"] label { color: #aabbdd !important; }
 .footer { text-align: center; color: #2a3a5a; font-size: 0.8em; letter-spacing: 2px; padding: 10px; }
 </style>
-""", unsafe_allow_html=True)
-
-# Voice Input JavaScript
-st.markdown("""
-<script>
-function startVoice() {
-    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-        alert('Voice not supported! Please use Chrome browser.');
-        return;
-    }
-    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    recognition.lang = 'en-IN';
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
-
-    document.getElementById('voiceBtn').innerHTML = '🔴 Listening...';
-    document.getElementById('voiceBtn').style.background = 'linear-gradient(135deg, #ff0000, #cc0000)';
-
-    recognition.start();
-
-    recognition.onresult = function(event) {
-        const text = event.results[0][0].transcript;
-        document.getElementById('voiceBtn').innerHTML = '🎤 Voice Input';
-        document.getElementById('voiceBtn').style.background = 'linear-gradient(135deg, #7b2fff, #00d4ff)';
-        const inputs = window.parent.document.querySelectorAll('input[type=text]');
-        if (inputs.length > 0) {
-            const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
-            nativeInputValueSetter.call(inputs[0], text);
-            inputs[0].dispatchEvent(new Event('input', { bubbles: true }));
-        }
-    };
-
-    recognition.onerror = function(event) {
-        document.getElementById('voiceBtn').innerHTML = '🎤 Voice Input';
-        document.getElementById('voiceBtn').style.background = 'linear-gradient(135deg, #7b2fff, #00d4ff)';
-        alert('Microphone error: ' + event.error + '. Please allow microphone access!');
-    };
-
-    recognition.onend = function() {
-        document.getElementById('voiceBtn').innerHTML = '🎤 Voice Input';
-        document.getElementById('voiceBtn').style.background = 'linear-gradient(135deg, #7b2fff, #00d4ff)';
-    };
-}
-</script>
-
-<div style="text-align:center; margin: 15px 0;">
-<button id="voiceBtn" onclick="startVoice()" style="
-    background: linear-gradient(135deg, #7b2fff, #00d4ff);
-    color: white;
-    border: none;
-    padding: 12px 28px;
-    border-radius: 15px;
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 0 20px #7b2fff44;
-    font-family: Rajdhani, sans-serif;
-    letter-spacing: 1px;
-">🎤 Voice Input</button>
-<div style="color:#445577; font-size:0.8em; margin-top:6px;">Click and speak your question in English or Telugu</div>
-</div>
-""", unsafe_allow_html=True)
+""", unsafe_allow_html=True
 
 st.markdown('<div class="main-title">⚡ JYNXIQ</div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">I N T E L L I G E N T   L E A R N I N G   A I</div>', unsafe_allow_html=True)
@@ -111,7 +50,6 @@ with st.sidebar:
     st.markdown("• UPSC current affairs")
     st.markdown("• NEET biology tips")
     st.markdown("• IIT JEE maths tricks")
-    st.markdown("• 🎤 Speak your question!")
     st.markdown("• 📸 Upload question photo!")
     st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
     subject = st.selectbox("📖 Select Subject Mode", [
@@ -129,7 +67,7 @@ with st.sidebar:
         st.session_state.image_data = None
         st.rerun()
     st.markdown("🚀 Powered by Groq AI")
-    st.markdown("✅ Free Forever")
+    st.markdown("✅ Free Foreveryone")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -146,7 +84,6 @@ if len(st.session_state.messages) == 0:
         <div style="color:#ffffff;">🧪 <b>NEET/MBBS</b> — Biology, Chemistry, Physics</div>
         <div style="color:#ffffff;">🏛️ <b>UPSC</b> — History, Polity, Geography, Economy</div>
         <div style="color:#ffffff;">📚 <b>Inter Board</b> — MPC, BiPC, All Subjects</div>
-        <div style="color:#ffffff;">🎤 <b>Voice Input</b> — Speak your question!</div>
         <div style="color:#ffffff;">🖼️ <b>Image Q&A</b> — Upload photo of any question!</div>
         <br>
         <div style="color:#7799aa; font-size:0.9em;">✦ Ask in English or Telugu ✦ No login needed ✦ 100% Free ✦</div>
@@ -171,7 +108,7 @@ if uploaded_file:
 
 col1, col2 = st.columns([5, 1])
 with col1:
-    user_input = st.text_input("", placeholder="✦ Type or use 🎤 Voice above...", label_visibility="collapsed")
+    user_input = st.text_input("", placeholder="✦ Type or Upload files...", label_visibility="collapsed")
 with col2:
     send_button = st.button("🚀")
 
@@ -228,4 +165,4 @@ elif send_button:
     st.warning("Please type a question or upload an image first!")
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-st.markdown('<div class="footer">✦ JYNXIQ ✦ VOICE & IMAGE AI ✦ FREE FOREVER ✦ MADE FOR STUDENTS🧑‍🎓  ✦</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">✦ JYNXIQ ✦ IMAGE AI ✦ FREE FOR EVERYONE ✦ MADE FOR STUDENTS🧑‍🎓  ✦</div>', unsafe_allow_html=True)
