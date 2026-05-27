@@ -7,7 +7,7 @@ API_KEY = st.secrets["GROQ_API_KEY"]
 
 st.set_page_config(page_title="JYNXIQ", page_icon="🚀", layout="centered")
 
-st.markdown("""
+st.marked"("
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap');
 * { font-family: 'Rajdhani', sans-serif; }
